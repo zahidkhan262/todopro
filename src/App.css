@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{padding: 0; margin: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif;}
+
+:root{
+    --bg-color:#161c2d;
+    --white-color: #fff;
+    --btn-add:#0019fd;
+    --btn-delete: rgb(160, 26, 35);
+    --btn-edit: rgb(26, 160, 82);
+    --font-color:rgb(102, 101, 101);
+    --text-size: 17px;
+    --text-small-size: 13px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
+/* todolist css */
+body{background: var(--white-color);}
+.container{width: 100%; padding: 20px 40px;}
+.todo_box{margin: 4rem auto; background: var(--bg-color); max-width: 600px;
+    min-height: 400px;  padding: 20px 40px;  border-radius: 10px; box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);}
+form, .d-flex{display: flex; justify-content: center; }
+.d-flex-1{display: flex; justify-content: space-between; align-items: center; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input{ width: 80%; border: none; outline: none; padding: 8px 16px; font-size:var(--text-size);
+    color: var(--bg-color);  box-shadow: 0 0 5px 0 rgba(0,0,0,0.2); font-weight: 400;}
+h2{color: var(--white-color); font-size: 22px; padding: 10px 0; text-align: center;}
+.input:focus{border: 3px solid #0019fd;}
+
+
+
+/* list css */
+.list{transition: ease 0.6s; background: var(--white-color); width: 87%; margin: 20px auto; padding: 0 10px;}
+.list p{width: 90%; font-size:var(--text-size); color: var(--font-color); text-align: left; font-weight: 700;
+    text-transform: capitalize; padding: 15px 5px; overflow: hidden; word-wrap: break-word; position: relative;} 
+
+ .delete{color: #0019fd; font-weight: 600; margin-top: 30px;}   
+.delete:hover{background: var(--btn-delete); color: var(--white-color);}
+
+
+.btn{border: none; outline: none; padding: 14px 16px; }
+.btn-2{color: var(--btn-delete); transition: 0.3s; font-size: 28px;}
+.btn-3{color: var(--btn-edit); transition: 0.3s; font-size: 28px;}
+.btn-3:hover{background: rgb(31, 197, 120); color: var(--white-color); transition: 0.3s;}
+.btn-2:hover{background: rgb(238, 103, 112); color: var(--white-color);}
+.btn-1{background: var(--btn-add); color: var(--white-color); font-size: 28px;}
+.btn-1:hover{opacity: 0.8;}
+
+
+
+/* responsive for mobile tabs */
+
+@media(max-width:776px){
+    .container{width: 100%; padding: 20px;}
+    .list{width: 90%; margin: 20px auto; padding: 0 5px;}
+    .list p{width: 90%; font-size:var(--text-small-size); padding: 5px; color: var(--font-color); text-align: left;
+    text-transform: capitalize; padding: 10px 0; overflow: hidden;} 
+    .btn{padding: 10px; font-size: 15px;}
+    .input{ width: 95%; font-size: var(--text-small-size);}
 }
