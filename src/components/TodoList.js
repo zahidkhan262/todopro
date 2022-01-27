@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleRight, faEdit } from '@fortawesome/free-regular-svg-icons';
 
 
-// Nsjkbhdbsdkmsjdn sjsb
 
 // to get data from local storage
 
@@ -37,8 +36,6 @@ const TodoList = () => {
         e.preventDefault();
         if (!inputData) {
             toast.error('invalid input');
-
-
         } else if (inputData && !editAdd) {
             setTodoList(
                 todoList.map((elem) => {
@@ -75,19 +72,6 @@ const TodoList = () => {
 
 
 
-    // --------------------------delete task-------------------------
-    const deleteTask = (index) => {
-        // filtering the data via id
-
-        const updatedItems = todoList.filter((item) => {
-            return index !== item.id;
-        })
-        toast.error('Task Deleted')
-        setTodoList(updatedItems);
-    }
-
-
-
     // --------------------delete All task-----------------------------
     const deleteAll = () => {
         setTodoList([]);
@@ -120,8 +104,10 @@ const TodoList = () => {
                             onChange={(e) => setInputData(e.target.value)}
                             onKeyPress={handleKeypress}
                         />
-                        {editAdd ? <button className="btn btn-1"><FontAwesomeIcon icon={faArrowAltCircleRight} /></button> :
-                            <button className="btn btn-1"><FontAwesomeIcon icon={faEdit} /></button>
+                        {
+                        editAdd 
+                        ? <button className="btn btn-1"><FontAwesomeIcon icon={faArrowAltCircleRight} /></button> 
+                        : <button className="btn btn-1"><FontAwesomeIcon icon={faEdit} /></button>
                         }
 
                     </form>
@@ -130,7 +116,7 @@ const TodoList = () => {
                     {todoList.length ? todoList.map((elem) =>
                         <List mytodo={elem.mytodo} key={elem.id}
                             id={elem.id}
-                            deleteTask={deleteTask}
+                            setTodoList={setTodoList}
                             todoList={todoList}
                             editTodo={editTodo}
                             setEditTodo={setEditTodo}
@@ -145,10 +131,14 @@ const TodoList = () => {
                         : <h2> 🚫 No Data here...</h2>
                     }
 
-                    {todoList.length ? <div className="show-delete">
-                        <button className="btn delete" onClick={deleteAll}>Delete All</button>
-                        {/* <button className="btn  watch" >Watch List</button> */}
-                    </div> : null}
+                    {
+                        todoList.length 
+                        ? <div className="show-delete">
+                            <button className="btn delete" onClick={deleteAll}>Delete All</button>
+                            {/* <button className="btn  watch" >Watch List</button> */}
+                          </div> 
+                        : null
+                    }
                 </div>
             </div>
 
