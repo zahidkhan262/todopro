@@ -7,8 +7,11 @@ import { toast } from "react-toastify";
 
 const List = ({mytodo,setEditAdd,setInputData,setIsEditItem,todoList,id,setTodoList}) => {
 
-
+// edit task by find method via Id
     const editTask = (id) => {
+        console.log("edit Id",id)
+
+
         let newEditItem = todoList.find((elem) => {
             return elem.id === id
         });
@@ -16,6 +19,7 @@ const List = ({mytodo,setEditAdd,setInputData,setIsEditItem,todoList,id,setTodoL
 
         setEditAdd(false);
         setInputData(newEditItem.mytodo);
+        // pass id in isEditItem via setIsEditItem
         setIsEditItem(id);
     }
 

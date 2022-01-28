@@ -48,7 +48,7 @@ const TodoList = () => {
             setEditAdd(true);
             setInputData('');
             setIsEditItem(null);
-            toast.success('Task Updated')
+            toast('Task Updated')
         } else {
             const newTodo = {
                 mytodo: inputData,
@@ -56,7 +56,7 @@ const TodoList = () => {
             }
             setTodoList([...todoList, newTodo]);
             setInputData('');
-            toast('Task Added')
+            toast.success('Task Added')
         }
     };
 
@@ -107,14 +107,16 @@ const TodoList = () => {
                         {
                         editAdd 
                         ? <button className="btn btn-1"><FontAwesomeIcon icon={faArrowAltCircleRight} /></button> 
-                        : <button className="btn btn-1"><FontAwesomeIcon icon={faEdit} /></button>
+                        : <button type='submit' className="btn btn-1"><FontAwesomeIcon icon={faEdit} /></button>
                         }
 
                     </form>
 
 
-                    {todoList.length ? todoList.map((elem) =>
-                        <List mytodo={elem.mytodo} key={elem.id}
+                    {todoList.length >0 ? todoList.map((elem) =>
+                        <List
+                            mytodo={elem.mytodo} 
+                            key={elem.id}
                             id={elem.id}
                             setTodoList={setTodoList}
                             todoList={todoList}
@@ -132,7 +134,7 @@ const TodoList = () => {
                     }
 
                     {
-                        todoList.length 
+                        todoList.length >0
                         ? <div className="show-delete">
                             <button className="btn delete" onClick={deleteAll}>Delete All</button>
                             {/* <button className="btn  watch" >Watch List</button> */}
