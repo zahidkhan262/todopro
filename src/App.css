@@ -39,7 +39,7 @@ h2{color: var(--white-color); font-size: 22px; padding: 10px 0; text-align: cent
 .delete:hover{background: var(--btn-delete); color: var(--white-color);}
 
 
-.btn{border: none; outline: none; padding: 14px 16px; }
+.btn-11{border: none; outline: none; padding: 14px 16px; }
 .btn-2{color: var(--btn-delete); transition: 0.3s; font-size: 28px;}
 .btn-3{color: var(--btn-edit); transition: 0.3s; font-size: 28px;}
 .btn-3:hover{background: rgb(31, 197, 120); color: var(--white-color); transition: 0.3s;}
@@ -56,6 +56,6 @@ h2{color: var(--white-color); font-size: 22px; padding: 10px 0; text-align: cent
     .list{width: 90%; margin: 20px auto; padding: 0 5px;}
     .list p{width: 90%; font-size:var(--text-small-size); padding: 5px; color: var(--font-color); text-align: left;
     text-transform: capitalize; padding: 10px 0; overflow: hidden;} 
-    .btn{padding: 10px; font-size: 15px;}
+    .btn-11{padding: 10px; font-size: 15px;}
     .input{ width: 95%; font-size: var(--text-small-size);}
 }

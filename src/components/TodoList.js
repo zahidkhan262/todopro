@@ -106,8 +106,8 @@ const TodoList = () => {
                         />
                         {
                         editAdd 
-                        ? <button className="btn btn-1"><FontAwesomeIcon icon={faArrowAltCircleRight} /></button> 
-                        : <button type='submit' className="btn btn-1"><FontAwesomeIcon icon={faEdit} /></button>
+                        ? <button className="btn-11 btn-1"><FontAwesomeIcon icon={faArrowAltCircleRight} /></button> 
+                        : <button type='submit' className="btn-11 btn-1"><FontAwesomeIcon icon={faEdit} /></button>
                         }
 
                     </form>
@@ -118,6 +118,7 @@ const TodoList = () => {
                             mytodo={elem.mytodo} 
                             key={elem.id}
                             id={elem.id}
+                            inputData={inputData}
                             setTodoList={setTodoList}
                             todoList={todoList}
                             editTodo={editTodo}
@@ -136,7 +137,7 @@ const TodoList = () => {
                     {
                         todoList.length >0
                         ? <div className="show-delete">
-                            <button className="btn delete" onClick={deleteAll}>Delete All</button>
+                            <button className="btn-11 delete" onClick={deleteAll}>Delete All</button>
                             {/* <button className="btn  watch" >Watch List</button> */}
                           </div> 
                         : null

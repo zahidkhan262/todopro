@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { toast } from "react-toastify";
+import { Modal } from 'react-bootstrap';
+import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 
 
 
-const List = ({mytodo,setEditAdd,setInputData,setIsEditItem,todoList,id,setTodoList}) => {
+const List = ({ mytodo, editAdd,setEditAdd, inputData, setInputData, setIsEditItem, todoList, id, setTodoList }) => {
 
-// edit task by find method via Id
+
+    const [show, setShow] = useState(false);
+
+    // edit task by find method via Id
     const editTask = (id) => {
-        console.log("edit Id",id)
+        handleShow()
+        console.log("edit Id", id)
 
 
         let newEditItem = todoList.find((elem) => {
@@ -32,15 +38,34 @@ const List = ({mytodo,setEditAdd,setInputData,setIsEditItem,todoList,id,setTodoL
         toast.error('Task Deleted')
         setTodoList(updatedItems);
     }
-
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
 
     return (
         <>
             <div className="list d-flex">
                 <p>{mytodo}</p>
-                <button className="btn btn-3" onClick={() => editTask(id)}><FontAwesomeIcon icon={faEdit} /></button>
-                <button className="btn btn-2" onClick={() => deleteTask(id)} ><FontAwesomeIcon icon={faTrash} /></button>
+                <button className="btn-11 btn-3" onClick={() => editTask(id)}><FontAwesomeIcon icon={faEdit} /></button>
+                <button className="btn-11 btn-2" onClick={() => deleteTask(id)} ><FontAwesomeIcon icon={faTrash} /></button>
             </div>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton />
+
+                <Modal.Body>
+                    <input type="text"
+                        className="input"
+                        placeholder="Enter a task here....."
+                        value={inputData}
+                        onChange={(e) => setInputData(e.target.value)}
+                    />
+                    {
+                        editAdd
+                            ? <button className="btn-11 btn-1"><FontAwesomeIcon icon={faArrowAltCircleRight} /></button>
+                            : <button type='submit' className="btn-11 btn-1"><FontAwesomeIcon icon={faEdit} /></button>
+                    }
+                </Modal.Body>
+            </Modal>
         </>
     )
 }
