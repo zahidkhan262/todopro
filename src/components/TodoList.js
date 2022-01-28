@@ -63,15 +63,6 @@ const TodoList = () => {
 
 
 
-    // ------------------------Add task by button------------------
-    const handleKeypress = e => {
-        if (e.keyCode === 13) {
-        }
-    };
-
-
-
-
     // --------------------delete All task-----------------------------
     const deleteAll = () => {
         setTodoList([]);
@@ -102,14 +93,12 @@ const TodoList = () => {
                             placeholder="Enter a task here....."
                             value={inputData}
                             onChange={(e) => setInputData(e.target.value)}
-                            onKeyPress={handleKeypress}
                         />
                         {
-                        editAdd 
-                        ? <button className="btn-11 btn-1"><FontAwesomeIcon icon={faArrowAltCircleRight} /></button> 
-                        : <button type='submit' className="btn-11 btn-1"><FontAwesomeIcon icon={faEdit} /></button>
+                            editAdd 
+                            ? <button className="btn-11 btn-1"><FontAwesomeIcon icon={faArrowAltCircleRight} /></button> 
+                            : <button type='submit' className="btn-11 btn-1"><FontAwesomeIcon icon={faEdit} /></button>
                         }
-
                     </form>
 
 

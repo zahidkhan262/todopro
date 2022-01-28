@@ -7,7 +7,7 @@ import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 
 
 
-const List = ({ mytodo, editAdd,setEditAdd, inputData, setInputData, setIsEditItem, todoList, id, setTodoList }) => {
+const List = ({ mytodo, editAdd, setEditAdd, inputData, setInputData, setIsEditItem, todoList, id, setTodoList }) => {
 
 
     const [show, setShow] = useState(false);
@@ -15,15 +15,13 @@ const List = ({ mytodo, editAdd,setEditAdd, inputData, setInputData, setIsEditIt
     // edit task by find method via Id
     const editTask = (id) => {
         handleShow()
-        console.log("edit Id", id)
-
-
+      
         let newEditItem = todoList.find((elem) => {
             return elem.id === id
         });
-        console.log(newEditItem)
+      
 
-        setEditAdd(false);
+      
         setInputData(newEditItem.mytodo);
         // pass id in isEditItem via setIsEditItem
         setIsEditItem(id);
@@ -51,7 +49,6 @@ const List = ({ mytodo, editAdd,setEditAdd, inputData, setInputData, setIsEditIt
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton />
-
                 <Modal.Body>
                     <input type="text"
                         className="input"
@@ -59,11 +56,9 @@ const List = ({ mytodo, editAdd,setEditAdd, inputData, setInputData, setIsEditIt
                         value={inputData}
                         onChange={(e) => setInputData(e.target.value)}
                     />
-                    {
-                        editAdd
-                            ? <button className="btn-11 btn-1"><FontAwesomeIcon icon={faArrowAltCircleRight} /></button>
-                            : <button type='submit' className="btn-11 btn-1"><FontAwesomeIcon icon={faEdit} /></button>
-                    }
+                   
+                    <button className="btn-11 btn-3" onClick={() => editTask(id)}><FontAwesomeIcon icon={faEdit} /></button>
+                   
                 </Modal.Body>
             </Modal>
         </>
